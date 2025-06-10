@@ -25,8 +25,8 @@ import HasilCekKesehatan from './models/hasilCekKesehatan-model.js';
 const init = async () => {
 
     const server = Hapi.server({
-        port: process.env.PORT||3000,
-        host: '0.0.0.0',
+        port: process.env.PORT,
+        host: 'localhost',
         routes: {
             cors: {
                 origin: ['http://localhost:5173'],
