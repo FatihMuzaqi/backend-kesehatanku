@@ -1,0 +1,229 @@
+GET http://localhost:5000/user
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjYsIm5hbWUiOiJhZG1pbiIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZXMiOiJBZG1pbiIsImlhdCI6MTc0OTQ1MzMyMiwiZXhwIjoxNzQ5NTI1MzIyfQ.TvYsNGV9jejbhTUq598YvU6GtFOeVZLq5xjqUXTku_o
+
+###
+POST http://localhost:5000/user
+Content-Type: application/json
+
+{
+    "name":"fatih",
+    "email":"fatih.muzaqi123@gmail.com",
+    "password": "12345678",
+    "confPassword": "12345678"
+}
+
+###
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "email":"admin@gmail.com",
+    "password":"12345678"
+}
+
+###
+POST http://localhost:5000/logout
+
+###
+GET http://localhost:5000/token
+
+
+####
+
+//API PENYAKIT
+
+GET http://localhost:5000/penyakit
+
+
+//////////////////////////////////////////////////////// CRUD USER //////////////////////////////////////////////////
+
+###
+// API Menampilkan semua data users
+GET http://localhost:5000/api/users
+
+
+###
+// API Menambahkan data user
+POST http://localhost:5000/api/users
+Content-Type: application/json
+
+{
+    "name":"test",
+    "email":"test@gmail.com",
+    "password": "12345678"
+}
+
+###
+//API Menghapus data user
+DELETE http://localhost:5000/api/users/8
+
+
+###
+// API Mengubah data user
+PUT http://localhost:5000/api/users/8
+Content-Type: application/json
+
+{
+    "name":"test update",
+    "email":"testUpdate@gmail.com",
+    "password": "12345678"
+}
+
+
+###
+
+/////////////////////////////////////////////// KATEGORI API ////////////////////////////////////////////////////
+
+
+//API UNTUK MENAMPILKAN DATA KATEGORI
+GET http://localhost:5000/api/kategori
+
+
+
+//API UNTUK MENAMBAHKAN DATA KATEGORI
+###
+POST http://localhost:5000/api/kategori
+Content-Type: application/json
+
+{
+    "nama_kategori": "Nutrisi Kehamilan",
+    "deskripsi": "nutrisi kehamilan",
+    "images":"https://example.com/image.jpg"
+}
+
+//API UNTUK MENGHAPUS DATA KATEGORI
+###
+DELETE http://localhost:5000/api/kategori/8
+
+
+//API UNTUK MENGEDIT DATA KATEGORI
+###
+PUT http://localhost:5000/api/kategori/1
+
+{
+    "nama_kategori":"ketegori naru update",
+    "deskripsi": "deskripsi kategori baru update"
+}
+
+###
+
+POST http://localhost:5000/api/search-email
+Content-Type: application/json
+
+{
+    "email":"admin@gmail.com"
+}
+
+
+//////////////////////////////////////////////////////// CRUD ARTIKEL //////////////////////////////////////////////////
+###
+
+//API UNTUK MENAMPILKAN DATA ARTIKEL
+GET http://localhost:5000/api/artikel
+
+
+###
+//API UNTUK MENAMPILKAN DATA ARTIKEL DENGAN ID
+GET http://localhost:5000/api/artikel/3
+
+
+//API UNTUK MENAMBAHKAN DATA ARTIKEL
+###
+POST http://localhost:5000/api/artikel
+Content-Type: application/json
+
+###
+//API UNTUK MENGUPDATE DATA ARTIKEL
+PUT http://localhost:5000/api/artikel/1
+Content-Type: application/json
+
+
+
+###
+//API UNTUK MENGHAPUS DATA ARTIKEL
+DELETE http://localhost:5000/api/artikel/7
+
+
+
+/////////////////////////////////////////////////// CEK KESEHATAN //////////////////////////////////////////////
+
+
+### Get all categories
+GET http://localhost:5000/api/cek-kesehatan/categories
+Content-Type: application/json
+
+
+### Get detail cek kesehatan by ID (ganti :id sesuai data)
+GET http://localhost:5000/api/cek-kesehatan/1
+Content-Type: application/json
+
+###
+
+### Start session cek kesehatan (ganti :id sesuai data)
+POST http://localhost:5000/api/cek-kesehatan/1/start
+Content-Type: application/json
+
+###
+
+### Submit answer
+POST http://localhost:5000/api/cek-kesehatan/submit-answer
+Content-Type: application/json
+
+{
+  "session_id": "abc123",
+  "question_id": "q1",
+  "answer": "yes"
+}
+
+
+
+###
+POST http://localhost:5000/predict
+Content-Type: application/json
+
+{
+    "input": "gejala mual dan pusing"
+}
+
+###
+POST http://localhost:5000/request-password-reset
+Content-Type: application/json
+
+{
+    "email": "fatih.muzaqi123@gmail.com"
+}
+
+###
+POST http://localhost:5000/reset-password/a301b204c0d7d3644d897cea10e7cd02551d61dc9ff77e9c1a32e9db9d6de747
+Content-Type: application/json
+
+{
+    "newPassword": "passwordBaru12345"
+}
+
+###
+POST http://localhost:5000/kesehatan
+Content-Type: application/json
+
+{
+    "id_kategori": 1,
+    "title": "Diabetes",
+    "deskripsi": "Diabetes adalah penyakit kronis yang ditandai oleh tingginya kadar gula darah.",
+    "saran": "Jaga pola makan sehat, rutin olahraga, dan periksa gula darah secara berkala."
+}
+
+###
+POST http://localhost:5000/cek-kesehatan
+Content-Type: application/json
+
+{
+    "symptoms": ["shivering", "chills"]
+}
+
+###
+POST http://localhost:5000/predict-kesehatan
+Content-Type: application/json
+
+{
+    "symptoms": "fatigue weight_lost restlessness lethargy"
+}
