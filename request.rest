@@ -2,7 +2,7 @@ GET http://localhost:5000/user
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjYsIm5hbWUiOiJhZG1pbiIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZXMiOiJBZG1pbiIsImlhdCI6MTc0OTQ1MzMyMiwiZXhwIjoxNzQ5NTI1MzIyfQ.TvYsNGV9jejbhTUq598YvU6GtFOeVZLq5xjqUXTku_o
 
 ###
-POST http://localhost:5000/user
+POST https://backend-kesehatanku-production.up.railway.app/user
 Content-Type: application/json
 
 {
