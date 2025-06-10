@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import { addUserService, indexUsersSerice, updateUserService, deleteUserService, searchEmailService, getUserService } from "../services/User-service.js";
+import { addUserService, indexUsersSerice, updateUserService, deleteUserService, searchEmailService, getUserService } from "../services/user-service.js";
 import Joi from "joi";
 
 export const indexUser = async (request, h) => {
