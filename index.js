@@ -56,7 +56,6 @@ const init = async () => {
         isHttpOnly: true,
         path: '/',
         encoding: 'none', // biar bisa baca token string biasa,
-        isSameSite:false
     });
 
     try {
