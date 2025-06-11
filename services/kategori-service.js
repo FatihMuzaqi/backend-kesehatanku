@@ -4,6 +4,8 @@ import path from "path";
 import fs from 'fs';
 import md5 from 'md5';;
 
+const api_url = process.env.URL_BACKEND || 'https://backend-kesehatanku-production.up.railway.app';
+
 export const getKategori = async () => {
     const data = await KategoriKesehatan.findAll();
     return data;
@@ -51,7 +53,7 @@ export const addKategoriService = async ({ nama_kategori, deskripsi, file }, bas
         const filePath = path.join(dirPath, fileName);
         fs.writeFileSync(filePath, file._data);
 
-        imageUrl = `${process.env.URL_BACKEND}/images/kategori/${fileName}`;
+        imageUrl = `/images/kategori/${fileName}`;
     }
 
     // Simpan ke database
