@@ -4,8 +4,6 @@ import path from "path";
 import fs from 'fs';
 import md5 from 'md5';;
 
-const api_url = process.env.URL_BACKEND || 'https://backend-kesehatanku-production.up.railway.app';
-
 export const getKategori = async () => {
     const data = await KategoriKesehatan.findAll();
     return data;
@@ -21,6 +19,7 @@ export const getKategori = async () => {
  * @returns {Object} kategori baru yang sudah disimpan
  */
 export const addKategoriService = async ({ nama_kategori, deskripsi, file }, baseUrl) => {
+    const baseUrl = process.env.BASE_URL;
     const existing = await KategoriKesehatan.findOne({ where: { nama_kategori } });
     if (existing) {
         throw new Error('Nama kategori sudah digunakan');
@@ -53,7 +52,7 @@ export const addKategoriService = async ({ nama_kategori, deskripsi, file }, bas
         const filePath = path.join(dirPath, fileName);
         fs.writeFileSync(filePath, file._data);
 
-        imageUrl = `/images/kategori/${fileName}`;
+        imageUrl = `${baseUrl}/images/kategori/${fileName}`;
     }
 
     // Simpan ke database
