@@ -27,7 +27,7 @@ export const RegisterServices = async (name, email, password, confPassword) => {
     const newUser = await Users.create({
         name: name,
         email: email,
-        roleId: 2,
+        roleId: 1,
         password: hashpassword,
     });
 
