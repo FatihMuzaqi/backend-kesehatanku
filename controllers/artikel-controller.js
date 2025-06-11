@@ -14,6 +14,7 @@ export const getArtikel = async (request, h) => {
 
 
 export const createArtikel = async (request, h) => {
+    const baseUrl = process.env.BASE_URL;
     try {
         const { payload } = request;
 
@@ -55,7 +56,7 @@ export const createArtikel = async (request, h) => {
         // Buat URL gambar (ambil dari request info di Hapi)
         const protocol = request.server.info.protocol || 'http'; // default http
         const host = request.info.host; // biasanya sudah ada port
-        const url = `${protocol}://${host}/images/artikel/${fileName}`;
+        const url = `${baseUrl}/images/artikel/${fileName}`;
 
         // Simpan ke DB
         const newArtikel = await createArtikelService({
@@ -100,6 +101,7 @@ export const getArtikelById = async (request, h) => {
 
 // UPDATE
 export const updateArtikel = async (request, h) => {
+    const baseUrl = process.env.BASE_URL;
     try {
         console.log('params:', request.params);
         console.log('payload:', request.payload);
@@ -143,7 +145,7 @@ export const updateArtikel = async (request, h) => {
             const filePath = path.join(fileDir, fileName);
             fs.writeFileSync(filePath, file._data);
 
-            imageUrl = `${request.server.info.uri}/images/artikel/${fileName}`;
+            imageUrl = `${baseUrl}/images/artikel/${fileName}`;
 
             const oldImagePath = artikelLama.images?.split('/images/artikel/')[1];
             if (oldImagePath) {
