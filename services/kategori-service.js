@@ -51,7 +51,7 @@ export const addKategoriService = async ({ nama_kategori, deskripsi, file }, bas
         const filePath = path.join(dirPath, fileName);
         fs.writeFileSync(filePath, file._data);
 
-        imageUrl = `${baseUrl}/images/kategori/${fileName}`;
+        imageUrl = `${process.env.URL_BACKEND}/images/kategori/${fileName}`;
     }
 
     // Simpan ke database
