@@ -51,12 +51,13 @@ const init = async () => {
   });
 
     server.state('refreshToken', {
-        ttl: null,
-        isSecure: false, // ubah ke true kalau sudah pakai https
-        isHttpOnly: true,
-        path: '/',
-        encoding: 'none', // biar bisa baca token string biasa
-    });
+    ttl: null,
+    isSecure: true, // set false only for local development over HTTP
+    isHttpOnly: true,
+    path: '/',
+    encoding: 'none',
+    sameSite: 'None', // 🔥 PENTING agar cookie bisa dikirim cross-site
+  });
 
     try {
         await db.authenticate();
