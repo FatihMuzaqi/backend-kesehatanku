@@ -193,7 +193,7 @@ export const predictKulit = async (request, h) => {
       contentType: file.hapi.headers['content-type'],
     });
 
-    const response = await axios.post('http://127.0.0.1:3000/predict-kulit', formData, {
+    const response = await axios.post('https://machinelearningapi-production.up.railway.app/predict-kulit', formData, {
       headers: formData.getHeaders(),
     });
 
