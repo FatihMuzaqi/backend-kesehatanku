@@ -18,7 +18,7 @@ export const getKategori = async () => {
  * @param {string} baseUrl - URL dasar server untuk membangun URL gambar
  * @returns {Object} kategori baru yang sudah disimpan
  */
-export const addKategoriService = async ({ nama_kategori, deskripsi, file }, baseUrl) => {
+export const addKategoriService = async ({ nama_kategori, deskripsi, file }) => {
     const baseUrl = process.env.BASE_URL;
     const existing = await KategoriKesehatan.findOne({ where: { nama_kategori } });
     if (existing) {
