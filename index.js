@@ -21,6 +21,10 @@ import { reactions } from './models/reactions-artikel.js';
 import Konsultasi from './models/konsultasi-model.js';
 import routeQuestion from './routes/question-route.js';
 import HasilCekKesehatan from './models/hasilCekKesehatan-model.js';
+import dotenv from "dotenv"
+
+
+dotenv.config()
 
 const init = async () => {
 
