@@ -221,7 +221,7 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:5000/predict-kesehatan
+POST https://capstoneproject123.pythonanywhere.com/predict
 Content-Type: application/json
 
 {

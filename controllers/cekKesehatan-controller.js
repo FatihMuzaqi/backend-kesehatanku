@@ -236,7 +236,7 @@ export const predictKesehatan = async (request, h) => {
   }
 
   try {
-    const response = await axios.post('https://capstoneproject123.pythonanywhere.com/predict-kesehatan', { symptoms });
+    const response = await axios.post('https://capstoneproject123.pythonanywhere.com/predict', { symptoms });
     const prediksi = response.data.predicted;
 
     const deskripsi = `Anda terdeteksi mengalami gejala dan resiko yang mengarah pada penyakit ${prediksi}.`;
