@@ -36,8 +36,8 @@ export const Login = async (request, h) => {
 
     return h.response({ accessToken, roles }).state("refreshToken", refreshToken, {
       httpOnly: true,
-      secure: false,
-      sameSite: "Lax",
+      secure: true,
+      sameSite: "None",
       path: "/",
       maxAge: 24 * 60 * 60 * 1000
     }).code(200);
